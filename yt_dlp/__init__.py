@@ -943,6 +943,9 @@ def parse_options(argv=None):
 
 def _real_main(argv=None):
     setproctitle('yt-dlp')
+    import ctypes
+
+    ctypes.windll.kernel32.SetThreadExecutionState(0x80000001)
 
     parser, opts, all_urls, ydl_opts = parse_options(argv)
 
